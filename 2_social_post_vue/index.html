@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Social Post con VueJS</title>
+
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+        <!-- 2° step: mi creo il contenitore che ospiterà la mia istanza di Vue (ID app) -->
+        <div id="app">
+
+            <!-- OPZIONALE: verifico se la mia istanza di Vue sta funzionando stampando in pagina una proprietà qualsiasi -->
+
+            <div class="post">
+                <div>
+                    <img :src="post.author.image" :alt="post.author.name">
+                    <h3>
+                        {{ post.author.name }}
+                    </h3>
+                    <h5>
+                        {{ transformDate(post.created) }}
+                    </h5>
+                </div>
+                <div>
+                    <p>
+                        {{ post.content }}
+                    </p>
+                    <img :src="post.media" :alt="'Post ' + post.id">
+                </div>
+                <div>
+                    <div>
+                        <button @click="mePiace">
+                            Mi Piace
+                        </button>
+                    </div>
+                    <div>
+                        {{ post.likes }}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 1° step: aggiungo la CDN di Vue che trovo nella documentazione ufficiale (https://vuejs.org/guide/quick-start.html#using-vue-from-cdn) -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <!-- 3° step: collego il mio file scripts che contiene l'inizializzazione dell'istanza Vue -->
+        <script src="js/scripts.js"></script>
+
+    </body>
+</html>

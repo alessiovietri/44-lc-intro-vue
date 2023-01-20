@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Intro VueJS</title>
+
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+        <div id="app">
+
+            <h1 :class="h1Classes">{{ title }}</h1>
+            <!--
+                Questo verrà trasformato da Vue in:
+                <h1 class="text-center">Hello Vue!</h1>
+            -->
+            <h2>
+                {{ salutaUtente('eng') }}
+            </h2>
+
+            <p v-bind:class="inputValue">
+                {{ text }}
+            </p>
+
+            <p :class="greetings()">
+                {{ arr }}
+            </p>
+
+            <div class="mb-40">
+                <h4>
+                    Risultato di singlePClasses:
+                </h4>
+                {{ singlePClasses() }}
+            </div>
+            <div class="mb-40">
+                <h4>
+                    Contenuto di classesList:
+                </h4>
+                {{ classesList }}
+            </div>
+
+            <p :class="singlePClasses()">
+                {{ obj }}
+            </p>
+
+            <div class="mb-40">
+                <label>
+                    Classe da aggiungere a classesList:
+                </label>
+                <input v-model="newClass" placeholder="Inserisci una classe da aggiungere...">
+                <button @click="addToClassesList">
+                    Aggiungi classe
+                </button>
+            </div>
+
+            <div>
+                <label>
+                    Nome da salutare
+                </label>
+                <input v-model="userName" placeholder="Inserisci il tuo nome...">
+            </div>
+
+            <div>
+                <label>
+                    Nome del passeggero
+                </label>
+                <input v-model="inputValue" placeholder="Inserisci il tuo nome...">
+
+                <h3>
+                    Nome passeggero
+                </h3>
+                <div v-bind:class="inputValue" class="red">
+                    {{ inputValue }}
+                </div>
+                <div :class="inputValue" class="mb-40">
+                    {{ inputValue }}
+                </div>
+            </div>
+
+            <div>
+                <button>
+                    {{ buttonLabel }}
+                </button>
+            </div>
+
+        </div>
+        
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <script src="js/scripts.js"></script>
+
+    </body>
+</html>

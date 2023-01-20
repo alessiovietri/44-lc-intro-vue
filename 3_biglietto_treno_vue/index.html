@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Biglietto del treno con VueJS</title>
+
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+
+        <!-- 2° step: mi creo il contenitore che ospiterà la mia istanza di Vue (ID app) -->
+        <div id="app">
+
+            <!-- OPZIONALE: verifico se la mia istanza di Vue sta funzionando stampando in pagina una proprietà qualsiasi -->
+
+            <div>
+                <label for="km">
+                    KM da percorrere
+                </label>
+                <input v-model="userKm" type="number" id="km" placeholder="Inserisci i KM che vuoi percorrere...">
+
+                <div>
+                    <h5>
+                        Hai inserito: {{ userKm }}
+                    </h5>
+                </div>
+            </div>
+            <div>
+                <label for="age">
+                    La tua età
+                </label>
+                <input v-model="userAge" type="number" id="age" placeholder="Inserisci la tua età...">
+
+                <div>
+                    <h5>
+                        Hai inserito: {{ userAge }}
+                    </h5>
+                </div>
+            </div>
+            <div>
+                <button @click="calcPrice">
+                    Calcola
+                </button>
+            </div>
+
+            <hr>
+
+            <div>
+                <h2>
+                    Prezzo finale:
+                </h2>
+                <div>
+                    {{ finalPrice }}
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 1° step: aggiungo la CDN di Vue che trovo nella documentazione ufficiale (https://vuejs.org/guide/quick-start.html#using-vue-from-cdn) -->
+        <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+        <!-- 3° step: collego il mio file scripts che contiene l'inizializzazione dell'istanza Vue -->
+        <script src="js/scripts.js"></script>
+
+    </body>
+</html>
